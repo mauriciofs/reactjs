@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1388534400000,
+        "author": "Pete Hunt",
+        "text": "Hey there!"
+    },
+    {
+        "id": 1420070400000,
+        "author": "Paul O\u2019Shannessy",
+        "text": "React is *great*!"
+    },
+    {
+        "id": 1420070400030,
+        "author": "Jo\u00e3o Dias",
+        "text": "React is **awesome**!"
+    },
+    {
+        "id": 1420070400340,
+        "author": "Jo\u00e3o Maricas",
+        "text": "React is **THE BEST**!"
+    },
+    {
+        "id": 1470583291667,
+        "author": "John Snow",
+        "text": "TRAITORS"
+    }
+]
