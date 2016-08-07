@@ -1,7 +1,18 @@
+var path = require('path');
+
 module.exports = {
-    entry: __dirname + "/app/js/test.js",
+    entry: [
+        "./src/index.js"
+    ],
     output: {
-        path: __dirname + '/app/public/dist/',
+        path: __dirname + '/public/',
         filename: "bundle.js"
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loaders: ['react-hot', 'babel'],
+            include: path.join(__dirname, 'src')
+        }]
     }
 };

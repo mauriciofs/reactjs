@@ -4,7 +4,8 @@
   "description": "Website using React",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/webpack-dev-server --progress --colors --watch"
   },
   "repository": {
     "type": "git",
@@ -20,11 +21,22 @@
   },
   "homepage": "https://github.com/mauriciofs/reactjs#readme",
   "dependencies": {
+    "path": "^0.12.7",
     "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "webpack": "^1.13.1"
+    "react-dom": "^15.3.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.0.20",
+    "babel-eslint": "^4.1.3",
+    "babel-loader": "^6.0.1",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-react": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.6.2",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
 }
