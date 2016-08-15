@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react'
+import NavLinks from './NavLinks'
 
-export default class App extends Component {
+export default React.createClass({
   render() {
     return (
-      <h1>Hello, world. >:)</h1>
-    );
+      <div>
+        <h1>React JS</h1>
+        <NavLinks/>
+        {this.props.children}
+      </div>
+    )
   }
-}
+})
