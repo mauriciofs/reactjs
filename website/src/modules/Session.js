@@ -1,4 +1,4 @@
-export default class Session {
+export default {
     getSession(){
         return false;
     }

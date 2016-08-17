@@ -75,7 +75,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { routes: _Routes2.default, history: _reactRouter.hashHistory }), document.getElementById('content'));
+	_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { routes: _Routes2.default, history: _reactRouter.browserHistory }), document.getElementById('content'));
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/mauriciofs/projects/reactjs/website/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
@@ -27106,7 +27106,7 @@
 	      _react2.default.createElement(
 	        'h1',
 	        null,
-	        'React JS =)'
+	        'React JS =D'
 	      ),
 	      _react2.default.createElement(_NavLinks2.default, null),
 	      this.props.children
@@ -27197,6 +27197,10 @@
 
 	var _Users2 = _interopRequireDefault(_Users);
 
+	var _Login = __webpack_require__(245);
+
+	var _Login2 = _interopRequireDefault(_Login);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	module.exports = _react2.default.createElement(
@@ -27204,6 +27208,7 @@
 	  { path: '/', component: _App2.default },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/users', component: _Users2.default })
 	);
 
@@ -27229,35 +27234,23 @@
 
 	var _Session2 = _interopRequireDefault(_Session);
 
+	var _reactRouter = __webpack_require__(176);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
 	    displayName: 'Home',
 	    render: function render() {
-	        if (this.state.loggedIn) {
-	            var msg = "Logado";
-	        } else {
-	            var msg = "";
-	        }
-
 	        return _react2.default.createElement(
 	            'div',
 	            null,
-	            'Home',
-	            _react2.default.createElement(
-	                'div',
-	                null,
-	                msg
-	            )
+	            'Home'
 	        );
 	    },
-	    getInitialState: function getInitialState() {
-	        var sess = new _Session2.default();
-	        if (sess.getSession() === true) {
-	            return { loggedIn: true };
+	    componentWillMount: function componentWillMount() {
+	        if (_Session2.default.getSession() === false) {
+	            _reactRouter.browserHistory.push('/login');
 	        }
-
-	        return { loggedIn: false };
 	    }
 	});
 
@@ -27274,27 +27267,11 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Session = function () {
-	    function Session() {
-	        _classCallCheck(this, Session);
+	exports.default = {
+	    getSession: function getSession() {
+	        return false;
 	    }
-
-	    _createClass(Session, [{
-	        key: "getSession",
-	        value: function getSession() {
-	            return false;
-	        }
-	    }]);
-
-	    return Session;
-	}();
-
-	exports.default = Session;
+	};
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/mauriciofs/projects/reactjs/website/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Session.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
@@ -27328,6 +27305,37 @@
 	});
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/mauriciofs/projects/reactjs/website/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Users.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/mauriciofs/projects/reactjs/website/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/mauriciofs/projects/reactjs/website/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'Login',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            'Login'
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/mauriciofs/projects/reactjs/website/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Login.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }
 /******/ ]);
